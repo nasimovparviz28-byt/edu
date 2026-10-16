@@ -4,14 +4,16 @@ O'quv markazi uchun React asosidagi boshqaruv paneli. Talabalar va guruhlarni yu
 
 ## Ishga tushirish
 
-Node.js o'rnatilgan bo'lishi kerak.
+Node.js o'rnatilgan bo'lishi kerak. Windows PowerShell'da `npm` buyrug'i PowerShell skript siyosati sabab bloklansa, quyidagi misollardagi kabi `npm.cmd` dan foydalaning. Bu loyiha xatosi emas; `npm.ps1` ishga tushishiga ruxsat berilmaganini anglatadi.
 
 ```sh
-npm install
-npm run dev
+npm.cmd install
+npm.cmd run dev
 ```
 
-`npm run dev` Vite interfeysini va `json-server` ma'lumotlar serverini birga ishga tushiradi. Interfeys odatda `http://localhost:5173`, API esa `http://localhost:3001` manzilida ishlaydi. Demo ma'lumotlar `db.json` faylida saqlanadi.
+`npm.cmd run dev` Vite interfeysini va `json-server` ma'lumotlar serverini birga ishga tushiradi. Interfeys `http://localhost:5173`, API esa `http://localhost:3001` manzilida ishlaydi. Demo ma'lumotlar `db.json` faylida saqlanadi. Ikkala server ham bitta terminal oynasida log chiqaradi; to'xtatish uchun `Ctrl+C` bosing.
+
+Serverlarni alohida ishga tushirish kerak bo'lsa, ikkita terminalda `npm.cmd run server` va `npm.cmd run client` buyruqlarini bajaring. Faqat API kerak bo'lsa `npm.cmd run server`, faqat interfeys kerak bo'lsa `npm.cmd run client` dan foydalaning.
 
 Demo hisob:
 
@@ -21,10 +23,11 @@ Demo hisob:
 ## Buyruqlar
 
 ```sh
-npm run lint     # kodni tekshirish
-npm run build    # production build yaratish
-npm run preview  # build natijasini lokal ko'rish
-npm run server   # faqat json-server'ni ishga tushirish
+npm.cmd run lint     # kodni tekshirish
+npm.cmd run build    # production build yaratish
+npm.cmd run preview  # build natijasini lokal ko'rish
+npm.cmd run server   # faqat json-server'ni ishga tushirish
+npm.cmd run client   # faqat Vite interfeysini ishga tushirish
 ```
 
 ## Asosiy bo'limlar
