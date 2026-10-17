@@ -79,17 +79,7 @@ const api = axios.create({
   }
 });
 
-if (!useBrowserDemo) {
-  api.interceptors.request.use((config) => {
-    if (import.meta.env.PROD && !apiUrl) {
-      const error = new Error('API_URL_NOT_CONFIGURED');
-      error.code = 'API_URL_NOT_CONFIGURED';
-      throw error;
-    }
-
-    return config;
-  });
-} else {
+if (useBrowserDemo) {
   api.get = (path, config) => demoGet(path, config);
   api.post = (path, payload) => demoPost(path, payload);
   api.patch = (path, payload) => demoPatch(path, payload);
