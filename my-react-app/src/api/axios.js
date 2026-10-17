@@ -2,7 +2,9 @@ import axios from 'axios';
 import demoDatabase from '../../db.json';
 
 const apiUrl = import.meta.env.VITE_API_URL?.trim();
-const useBrowserDemo = import.meta.env.PROD && !apiUrl;
+// This deployment is a self-contained demo, so production never depends on
+// an external API server or Vercel environment variables.
+const useBrowserDemo = import.meta.env.PROD;
 const demoStorageKey = 'edu-panel-demo-database';
 
 function readDemoDatabase() {
