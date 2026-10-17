@@ -2,9 +2,9 @@
   "admins": [
     {
       "id": 1,
-      "username": "admin",
+      "username": "Parviz",
       "password": "admin123",
-      "fullName": "Sardor Rahimov",
+      "fullName": "Parviz Nasimov",
       "avatar": "https://i.pravatar.cc/150?img=12"
     }
   ],
@@ -109,6 +109,28 @@
       "joinedAt": "2026-10-16",
       "note": "",
       "id": 6
+    },
+    {
+      "firstName": "Parviz",
+      "lastName": "Nasimov",
+      "phone": "+998 99 999 99 99",
+      "birthDate": "2010-10-28",
+      "groupId": 1,
+      "status": "active",
+      "joinedAt": "2026-10-17",
+      "note": "",
+      "id": 7
+    },
+    {
+      "firstName": "dilxush",
+      "lastName": "ismoilov",
+      "phone": "+998 99 999 99 99",
+      "birthDate": "2010-10-28",
+      "groupId": 1,
+      "status": "frozen",
+      "joinedAt": "2026-10-17",
+      "note": "",
+      "id": 8
     }
   ],
   "payments": [

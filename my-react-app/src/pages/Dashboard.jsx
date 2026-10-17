@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import api from '../api/axios';
 import { currentMonthString, formatMoney, studentName, statusLabel } from '../utils/format';
 import { calculateStudentDebt } from '../utils/debt';
+import { getErrorMessage } from '../utils/errors';
 import { Users, BookOpen, DollarSign, AlertCircle, ArrowUpRight } from 'lucide-react';
 
 const initialStats = { activeStudents: 0, activeGroups: 0, monthlyRevenue: 0, debtorsCount: 0, totalDebt: 0 };
@@ -53,8 +54,8 @@ export default function Dashboard() {
           totalDebt: debtorsList.reduce((sum, item) => sum + item.debtAmount, 0)
         });
         setRecentPayments([...payments].sort((a, b) => new Date(b.paidAt) - new Date(a.paidAt)).slice(0, 5));
-      } catch {
-        if (!cancelled) setError("Ma'lumotlarni yuklab bo'lmadi. json-server (port 3001) ishlayotganini tekshiring.");
+      } catch (err) {
+        if (!cancelled) setError(getErrorMessage(err, "Ma'lumotlarni yuklab bo'lmadi. API server ishlayotganini tekshiring."));
       } finally {
         if (!cancelled) setLoading(false);
       }

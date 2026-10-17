@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import api from '../api/axios';
 import { localDateString, studentName } from '../utils/format';
+import { getErrorMessage } from '../utils/errors';
 
 const today = localDateString();
 
@@ -26,9 +27,9 @@ export default function Attendance() {
         if (activeGroups[0]) setGroupId(String(activeGroups[0].id));
         setLoading(false);
       })
-      .catch(() => {
+      .catch((err) => {
         if (cancelled) return;
-        setError("Guruhlarni yuklab bo'lmadi. Server ishlayotganini tekshiring.");
+        setError(getErrorMessage(err, "Guruhlarni yuklab bo'lmadi. API server ishlayotganini tekshiring."));
         setLoading(false);
       });
 
@@ -63,8 +64,8 @@ export default function Attendance() {
         setStudents(activeStudents);
         setExisting(record);
         setMarks(nextMarks);
-      } catch {
-        if (!cancelled) setError("Davomat ma'lumotlarini yuklab bo'lmadi.");
+      } catch (err) {
+        if (!cancelled) setError(getErrorMessage(err, "Davomat ma'lumotlarini yuklab bo'lmadi."));
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -98,8 +99,8 @@ export default function Attendance() {
         setExisting(response.data);
       }
       setMessage('Davomat saqlandi.');
-    } catch {
-      setError("Davomatni saqlashda xatolik yuz berdi.");
+    } catch (err) {
+      setError(getErrorMessage(err, "Davomatni saqlashda xatolik yuz berdi."));
     } finally {
       setSaving(false);
     }

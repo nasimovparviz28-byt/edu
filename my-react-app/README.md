@@ -4,7 +4,7 @@ O'quv markazi uchun React asosidagi boshqaruv paneli. Talabalar va guruhlarni yu
 
 ## Ishga tushirish
 
-Node.js o'rnatilgan bo'lishi kerak. Windows PowerShell'da `npm` buyrug'i PowerShell skript siyosati sabab bloklansa, quyidagi misollardagi kabi `npm.cmd` dan foydalaning. Bu loyiha xatosi emas; `npm.ps1` ishga tushishiga ruxsat berilmaganini anglatadi.
+Node.js o'rnatilgan bo'lishi kerak. Buyruqlarni loyiha papkasida, ya'ni `package.json` fayli turgan joyda bajaring. Windows PowerShell'da `npm` buyrug'i skript siyosati sabab bloklansa, `npm.cmd` dan foydalaning.
 
 ```sh
 npm.cmd install
@@ -17,8 +17,14 @@ Serverlarni alohida ishga tushirish kerak bo'lsa, ikkita terminalda `npm.cmd run
 
 Demo hisob:
 
-- Foydalanuvchi nomi: `admin`
+- Foydalanuvchi nomi: `Parviz`
 - Parol: `admin123`
+
+## Netlify'ga joylash
+
+Loyihani GitHub orqali Netlify'ga ulanganda `netlify.toml` build buyrug'i (`npm run build`) va nashr papkasini (`dist`) sozlaydi. `public/_redirects` React Router ichki sahifalarini qayta yuklaganda Netlify 404 ko'rsatishining oldini oladi.
+
+Netlify faqat interfeysni joylaydi; `db.json` va `json-server` u yerda API server sifatida ishlamaydi. Login va ma'lumotlarni saqlash uchun API'ni alohida serverga joylab, Netlify sayti environment variables bo'limida `VITE_API_URL` qiymatini shu API manziliga o'rnating. API Netlify saytidan so'rov qabul qilishi (CORS) kerak. Environment variable build vaqtida ishlatilgani uchun qiymatni o'rnatgandan keyin saytni qayta joylang. API sozlanmaguncha Netlify'dagi login va ma'lumotlar bilan ishlash to'liq ishlamaydi. `db.json` ichidagi demo ma'lumotlar va parollarni ommaviy serverga joylamang.
 
 ## Buyruqlar
 
